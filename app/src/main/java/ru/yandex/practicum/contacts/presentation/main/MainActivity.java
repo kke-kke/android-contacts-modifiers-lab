@@ -28,7 +28,6 @@ import ru.yandex.practicum.contacts.model.ContactType;
 import ru.yandex.practicum.contacts.presentation.filter.FilterContactTypeDialogFragment;
 import ru.yandex.practicum.contacts.presentation.sort.SortDialogFragment;
 import ru.yandex.practicum.contacts.presentation.main.model.MenuClick;
-import ru.yandex.practicum.contacts.presentation.sort.model.SortType;
 import ru.yandex.practicum.contacts.ui.widget.DividerItemDecoration;
 import ru.yandex.practicum.contacts.utils.widget.EditTextUtils;
 
@@ -135,8 +134,8 @@ public class MainActivity extends AppCompatActivity {
             finish();
             return;
         }
-        binding.searchLayout.getRoot().setVisibility(uiState.searchVisibility ? View.VISIBLE : View.GONE);
-        binding.searchLayout.resetButton.setVisibility(uiState.resetSearchButtonVisibility ? View.VISIBLE : View.GONE);
+        binding.searchLayout.getRoot().setVisibility(uiState.isSearchVisibility() ? View.VISIBLE : View.GONE);
+        binding.searchLayout.resetButton.setVisibility(uiState.isResetSearchButtonVisibility() ? View.VISIBLE : View.GONE);
         if (uiState.actions.showSortTypeDialog.data != null) {
             showSortDialog(uiState.actions.showSortTypeDialog.data);
         }
